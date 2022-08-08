@@ -12,13 +12,13 @@ We used remix to create a smart contract and deployed this product on a private 
 
 ## QUESTIONS TO ANSWER
 
-How can we decrease the risk of default?
+* How can we decrease the risk of default?
 
-How can we make this flexible?
+* How can we make this flexible?
 
-Why should they hold until maturity? Why not withdraw right away?
+* Why should they hold until maturity? Why not withdraw right away?
 
-How will this benefit all stakeholders?
+* How will this benefit all stakeholders?
 
 ## THE TEAM
 
@@ -46,12 +46,12 @@ Alteratively, Nancy has an obligation to pay a creditor $1,000 at the end of the
 
 ## BENEFITS
 
-Flexibility - employees can choose to deposit the amount they are comfortable with, at various duration periods.
+* Flexibility - employees can choose to deposit the amount they are comfortable with, at various duration periods.
 
-Private Blockchain - as mentioned before, this is deployed on a private blockchain which reduces the risk of default significantly.
+* Private Blockchain - as mentioned before, this is deployed on a private blockchain which reduces the risk of default significantly.
 
-Reliable Individuals - as employees of the company, they are trusted individuals with good credit. Companies have already vetted their employees, ran background checks, and have access to their personal information which alleviates the trust component.
+* Reliable Individuals - as employees of the company, they are trusted individuals with good credit. Companies have already vetted their employees, ran background checks, and have access to their personal information which alleviates the trust component.
 
-Benefits for Muslim employees - there are not enough products/services offered that allign with the Muslim faith, interest is involved in almost every loan. The interest-free option that allows you to withdraw immediately can solve a bigger problem that Muslim employees face.
+* Benefits for Muslim employees - there are not enough products/services offered that allign with the Muslim faith, interest is involved in almost every loan. The interest-free option that allows you to withdraw immediately can solve a bigger problem that Muslim employees face.
 
-Funds for the company - having these pools of funds, at various durations, gives the company access to these funds at either a short term or long term basis. They can use these to increase their liquidity, and for other investments.
+* Funds for the company - having these pools of funds, at various durations, gives the company access to these funds at either a short term or long term basis. They can use these to increase their liquidity, and for other investments.
