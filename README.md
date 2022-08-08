@@ -37,13 +37,13 @@ The presentation deck can be found here
 
 ## SOFTWARE & TECHNOLOGIES USED
 
-Remix
+* Remix
 
-Metamask
+* Metamask
 
-Python
+* Python
 
-Streamlit
+* Streamlit
 
 ## HOW IT WORKS
 
