@@ -10,7 +10,7 @@ Our product allows individuals to deposit a certain amount in a pool, with a des
 
 We used remix to create a smart contract and deployed this product on a private blockhain. Users can go to the site , enter the amount they wish to deposit, and immediately receive their certificate.
 
-## QUESTIONS TO ANSWER
+## GENERAL QUESTIONS TO ANSWER
 
 * How can we decrease the risk of default?
 
@@ -19,6 +19,13 @@ We used remix to create a smart contract and deployed this product on a private 
 * Why should they hold until maturity? Why not withdraw right away?
 
 * How will this benefit all stakeholders?
+
+## TECHNICAL QUESTIONS TO ANSWER
+
+* How can we ensure each investor makes one deposit and cannot withdraw until all the money is pooled?
+
+* How can we set a cap to the contribution amount?
+
 
 ## THE TEAM
 
@@ -55,3 +62,5 @@ Alteratively, Nancy has an obligation to pay a creditor $1,000 at the end of the
 * Benefits for Muslim employees - there are not enough products/services offered that allign with the Muslim faith, interest is involved in almost every loan. The interest-free option that allows you to withdraw immediately can solve a bigger problem that Muslim employees face.
 
 * Funds for the company - having these pools of funds, at various durations, gives the company access to these funds at either a short term or long term basis. They can use these to increase their liquidity, and for other investments.
+
+## BUILDING THE CONTRACT
