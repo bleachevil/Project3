@@ -29,7 +29,7 @@ We used remix to create a smart contract and deployed this product on a private 
 
 ## THE TEAM
 
-Amira Ali | Jeff Zhang | Nadeem Hassan
+ Jeff Zhang | Nadeem Hassan | Amira Ali 
 
 ## PRESENTATION
 
