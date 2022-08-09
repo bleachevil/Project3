@@ -20,13 +20,6 @@ We used remix to create a smart contract and deployed this product on a private 
 
 * How will this benefit all stakeholders?
 
-## TECHNICAL QUESTIONS TO ANSWER
-
-* How can we ensure each investor makes one deposit and cannot withdraw until all the money is pooled?
-
-* How can we set a cap to the contribution amount?
-
-
 ## THE TEAM
 
  Jeff Zhang | Nadeem Hassan | Amira Ali 
@@ -62,5 +55,21 @@ Alteratively, Nancy has an obligation to pay a creditor $1,000 at the end of the
 * Benefits for Muslim employees - there are not enough products/services offered that allign with the Muslim faith, interest is involved in almost every loan. The interest-free option that allows you to withdraw immediately can solve a bigger problem that Muslim employees face.
 
 * Funds for the company - having these pools of funds, at various durations, gives the company access to these funds at either a short term or long term basis. They can use these to increase their liquidity, and for other investments.
+
+## COMPONENTS OF THE CONTRACT
+
+While building the contract, we thought of various points to consider. 
+
+* How can we ensure the funds are in the pool before individuals can start withdrawing? 
+
+- We decided to add a "pausible" component to the contract. This will allow us to freeze token transfers during the crowdsale so that investors cannot dump them while other people are still buying buying into the contract. 
+
+* How can we set up certain times for purchasing and redeeming? 
+
+- Add a timer to the crowdsale. We'll add an opening time and a closing time. We will only allow investors to purchase tokens within this time window.
+
+* How can we set minimum and maximum deposits? 
+
+- Add a limit component and hard caps. 
 
 ## BUILDING THE CONTRACT
