@@ -62,14 +62,14 @@ While building the contract, we thought of various points to consider.
 
 * How can we ensure the funds are in the pool before individuals can start withdrawing? 
 
-- We decided to add a "pausible" component to the contract. This will allow us to freeze token transfers during the crowdsale so that investors cannot dump them while other people are still buying buying into the contract. 
+We decided to add a "pausible" component to the contract. This will allow us to freeze token transfers during the crowdsale so that investors cannot dump them while other people are still buying buying into the contract. 
 
 * How can we set up certain times for purchasing and redeeming? 
 
-- Add a timer to the crowdsale. We'll add an opening time and a closing time. We will only allow investors to purchase tokens within this time window.
+Add a timer to the crowdsale. We'll add an opening time and a closing time. We will only allow investors to purchase tokens within this time window.
 
 * How can we set minimum and maximum deposits? 
 
-- Add a limit component and hard caps. 
+Add a limit component and hard caps. 
 
 ## BUILDING THE CONTRACT
