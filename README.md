@@ -94,6 +94,15 @@ For the detailed constructor, we set the multilplier to 18 to represent 1 wei pe
 
 ### ROSCATOKENCROWDSALE.SOL
 
+[This](https://github.com/bleachevil/Project3/blob/e07ee16a9acb4a7af504839a8b2cb082b6327c5a/RoscaTokenCrowdsale.sol) contract inherits crowdsale, minted corwdsale, timedcrowdsale, and roles from Open Zeppelin.
+
+The crowdsale function takes in the rate, wallet, and token. The timed crowdsale requires an opening time and closing time, which we set as 10 minutes past the opening time.
+
+The nonreentrant components helps to ensure individuals can only call the function once. 
+
+`_WeiRaised` is taking the wei purchased and adding this to the existing balance.
+
+### ROSCATOKENCROWDSALEDEVELOPER.SOL
 
 
 
