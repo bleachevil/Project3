@@ -21,7 +21,7 @@ contract RoscaToken is ERC20, ERC20Detailed, ERC20Mintable, ERC20Pausable {
     // ERC20Detailed constructor...
     // If 0 -- 1 Ether for 1 token
     // If 18 - 1 Wei for 1 token
-    ERC20Detailed(name, symbol, 0) public {
+    ERC20Detailed(name, symbol, 18) public {
         // If initial supply is required
         // mint(msg.sender, total_supply);
     }

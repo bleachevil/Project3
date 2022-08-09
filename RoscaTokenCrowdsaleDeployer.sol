@@ -9,17 +9,13 @@ contract RoscaTokenCrowdsaleDeployer {
 
     constructor(string memory name, 
                 string memory symbol, 
-                address payable wallet, 
-                uint256 cap, 
-                uint256 openingTime, 
-                uint256 closingTime, 
-                uint256 goal
+                address payable wallet
     ) public {
         
         RoscaToken token = new RoscaToken(name, symbol, 0);
         rosca_token_address = address(token); //deployed rosca token contract
 
-        RoscaTokenCrowdsale rosca_crowdsale = new RoscaTokenCrowdsale(10, wallet, token, cap, openingTime, closingTime, goal);
+        RoscaTokenCrowdsale rosca_crowdsale = new RoscaTokenCrowdsale(10, wallet, token, now, now+10 minutes);
         rosca_crowdsale_address = address(rosca_crowdsale); //deployed crowdsale
 
         // Set the `RoscaTokenCrowdsale` contract as a minter
