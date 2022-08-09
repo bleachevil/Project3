@@ -73,3 +73,31 @@ Add a timer to the crowdsale. We'll add an opening time and a closing time. We w
 Add a limit component and hard caps. 
 
 ## BUILDING THE CONTRACT
+
+### ROSCATOKEN.SOL
+
+For [this](https://github.com/bleachevil/Project3/blob/e07ee16a9acb4a7af504839a8b2cb082b6327c5a/RoscaToken.sol)  contract, we inherited ERC20, ERC20Detailed, ERC20Mintable, and ERC20Pausible from Open Zeppelin.
+
+We constructed a contract that takes in the name of the token, the symbol, and total supply. 
+
+```` 
+contract RoscaToken is ERC20, ERC20Detailed, ERC20Mintable, ERC20Pausable {
+    constructor(string memory name, 
+                string memory symbol, 
+                uint total_supply //needed if minting initial supply in the mint() function below
+    )
+    
+````
+
+For the detailed constructor, we set the multilplier to 18 to represent 1 wei per token. 
+
+
+### ROSCATOKENCROWDSALE.SOL
+
+
+
+
+
+
+
+
