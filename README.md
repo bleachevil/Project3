@@ -127,7 +127,7 @@ At maturity, or before, the contributers can submit a withdrawal request private
  
 ## GOING FORWARD 
 
-This project has many use cases and can be integrated as a part of the benefits that employers offer their employees. If we were not constrained by time, we would explored several other features. 
+This project has many use cases and can be integrated as a part of the benefits that employers offer their employees. If we were not constrained by time, we would have explored several other features. 
 
 1) Allowing the user to withdraw using the streamlit interface. 
 
@@ -137,7 +137,15 @@ As of now, the user is only allowed to submit their deposit and receive their ce
 
 Instead of having a crowdsale period that is then locked for the duration, we could consider having an employee deposit whenever they want to, removing the time constraints.
 
-3) 
+3) Whitelist features 
+
+For example only full time employees are eligible for contributions.
+
+4) Have variable interest
+
+Right now, interest is fixed at 15%, we could add a feature that allows for higher rates that can be distributed by the company if they have a good ROI using the crowdsale funding.
+
+
 
 
 
