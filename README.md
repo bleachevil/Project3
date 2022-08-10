@@ -147,5 +147,4 @@ Right now, interest is fixed at 15%, we could add a feature that allows for high
 
 
 
-
-
+## CONCLUSION
