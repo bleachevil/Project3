@@ -58,6 +58,8 @@ On the user's end, they will see our streamlit interface where they enter their 
 
 * Funds for the company - having these pools of funds, at various durations, gives the company access to these funds at either a short term or long term basis. They can use these to increase their liquidity, and for other investments.
 
+* Employee benefits - depending on the company, these tokens could potentially be traded in for vacation days ( if they have a balance at maturtity and wish not to redeem)
+
 ## COMPONENTS OF THE CONTRACT
 
 While building the contract, we thought of various points to consider. 
@@ -117,6 +119,18 @@ We set the crowdsale contract as the minter, and have it renounce its minter rol
  ````
  
  
+## GOING FORWARD 
+
+This project has many use cases and can be integrated as a part of the benefits that employers offer their employees. If we were not constrained by time, we would explored several other features. 
+
+1) Allowing the user to withdraw using the streamlit interface. 
+
+As of now, the user is only allowed to submit their deposit and receive their certificate in exchange. It would be more interactive if the user was also able to request a redemption of their tokens which could trigger the contract to send them their funds.
+
+2) Deposit on a rolling basis
+
+Instead of having a crowdsale period that is then locked for the duration, we could consider having an employee deposit whenever they want to, removing the time constraints.
+
 
 
 
