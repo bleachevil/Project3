@@ -44,6 +44,8 @@ This example will follow Nancy, an employee at ABC inc. She requires a loan for 
 
 Alteratively, Nancy has an obligation to pay a creditor $1,000 at the end of the week. She enters into a 10-day contract where she is to deposit $100 daily. Since she doesn't need the money immediately, she withdraws her money at maturity. Since she held her funds in the contract until maturity, she is awarded 15% on her deposits.
 
+On the user's end, they will see our streamlit interface where they enter their name, address, desired duration, deposit amount, as well as the start/end date. Once they submit, they will receive a certificate with their deposit amount that they can cash in when they choose. 
+
 ## BENEFITS
 
 * Flexibility - employees can choose to deposit the amount they are comfortable with, at various duration periods.
@@ -104,7 +106,9 @@ The nonreentrant components helps to ensure individuals can only call the functi
 
 ### ROSCATOKENCROWDSALEDEVELOPER.SOL
 
+[This](https://github.com/bleachevil/Project3/blob/e2af4a4a3633f660518d95bfab73c6c6427bbbd8/RoscaTokenCrowdsaleDeployer.sol) contract takes in a name, symbol, and wallet address. 
 
+We set the crowdsale contract as the minter, and have it renounce its minter role to demonstrate that we are no longer accepting new tokens.
 
 
 
