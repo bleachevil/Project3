@@ -110,6 +110,13 @@ The nonreentrant components helps to ensure individuals can only call the functi
 
 We set the crowdsale contract as the minter, and have it renounce its minter role to demonstrate that we are no longer accepting new tokens.
 
+````
+        token.addMinter(rosca_crowdsale_address);
+        token.renounceMinter();
+        
+ ````
+ 
+ 
 
 
 
