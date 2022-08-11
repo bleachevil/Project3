@@ -1,6 +1,7 @@
 pragma solidity ^0.5.0;
 
 import "./RoscaTokenCrowdsale.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/access/Roles.sol";
 
 contract RoscaTokenCrowdsaleDeployer {
     
@@ -15,7 +16,12 @@ contract RoscaTokenCrowdsaleDeployer {
         RoscaToken token = new RoscaToken(name, symbol, 0);
         rosca_token_address = address(token); //deployed rosca token contract
 
-        RoscaTokenCrowdsale rosca_crowdsale = new RoscaTokenCrowdsale(10, wallet, token, now, now+10 minutes);
+        //cap = 10 ether
+        //goal = 5 ether
+        //openingTime = now
+        //closingTime = 1 mins after
+
+        RoscaTokenCrowdsale rosca_crowdsale = new RoscaTokenCrowdsale(10, wallet, token, 10000000000000000000, now, now + 1 minutes, 5000000000000000000);
         rosca_crowdsale_address = address(rosca_crowdsale); //deployed crowdsale
 
         // Set the `RoscaTokenCrowdsale` contract as a minter
