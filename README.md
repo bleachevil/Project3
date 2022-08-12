@@ -124,12 +124,6 @@ We set the crowdsale contract as the minter, and have it renounce its minter rol
  ````
  
 
-## WITHDRAWALS
-
-`Since this contract is deployed on a private blockchain, the owner, or company in this case, can choose to pay out their employees however they wish. We did not code the trade in functions as this is not a public contract. 
-
-At maturity, or before, the contributers can submit a withdrawal request privately. The contract would send their address their tokens (1,000 for a $100 deposit for 10 days). The employer would convert those tokens into cash - $1 per token, and deposit this into the employee's bank accounts. `
-
 
 ## USER INTERFACE
 
