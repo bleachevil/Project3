@@ -10,6 +10,8 @@ Our product allows individuals to deposit a certain amount in a pool, with a des
 
 We used remix to create a smart contract and deployed this product on a private blockhain. Users can go to the site , enter the amount they wish to deposit, and immediately receive their certificate.
 
+`whenever they wish to redeem, users can go to the withdrawal site and receive a certificate with their tokens, and exchange that for ether`
+
 ## GENERAL QUESTIONS TO ANSWER
 
 * How can we decrease the risk of default?
@@ -44,7 +46,7 @@ This example will follow Nancy, an employee at ABC inc. She requires a loan for 
 
 Alteratively, Nancy has an obligation to pay a creditor $1,000 at the end of the week. She enters into a 10-day contract where she is to deposit $100 daily. Since she doesn't need the money immediately, she withdraws her money at maturity. Since she held her funds in the contract until maturity, she is awarded 15% on her deposits.
 
-On the user's end, they will see our streamlit interface where they enter their name, address, desired duration, deposit amount, as well as the start/end date. Once they submit, they will receive a certificate with their deposit amount that they can cash in when they choose. 
+On the user's end, they will see our streamlit interface where they enter their name, address, desired duration, deposit amount, as well as the start/end date. Once they submit, they will receive a certificate with their deposit amount that they can cash in when they choose. `The same process is valid for redemptions`
 
 ## BENEFITS
 
