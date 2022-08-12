@@ -100,7 +100,9 @@ For the detailed constructor, we set the multilplier to 18 to represent 1 wei pe
 
 ### ROSCATOKENCROWDSALE.SOL
 
-[This](https://github.com/bleachevil/Project3/blob/e07ee16a9acb4a7af504839a8b2cb082b6327c5a/RoscaTokenCrowdsale.sol) contract inherits crowdsale, minted corwdsale, timedcrowdsale, and roles from Open Zeppelin.
+[This](https://github.com/bleachevil/Project3/blob/e07ee16a9acb4a7af504839a8b2cb082b6327c5a/RoscaTokenCrowdsale.sol) contract inherits crowdsale, minted corwdsale, timedcrowdsale, capped crowdsale, and RefundablePostDeliveryCrowdsale from Open Zeppelin. 
+
+We mapped the address to the contribution amounts, as well as the balances. 
 
 The crowdsale function takes in the rate, wallet, and token. The timed crowdsale requires an opening time and closing time, which we set as 10 minutes past the opening time.
 
