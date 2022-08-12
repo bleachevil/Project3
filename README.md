@@ -104,11 +104,12 @@ For the detailed constructor, we set the multilplier to 18 to represent 1 wei pe
 
 We mapped the address to the contribution amounts, as well as the balances. 
 
-The crowdsale function takes in the rate, wallet, and token. The timed crowdsale requires an opening time and closing time, which we set as 10 minutes past the opening time.
+The crowdsale function takes in the rate, wallet, and token. The timed crowdsale requires an opening time and closing time, which we set as `10 minutes` past the opening time. We can also set the goal of the crowdsale to which ever number, and if the goal is not reached, the contributors will have their deposits refunded. 
 
-The nonreentrant components helps to ensure individuals can only call the function once. 
+The sendViaTransfers function takes in an address. If a contributor wishes to redeem, their address is entered into the function. When we call the function , the tokens get sent back to the contract.
 
-`_WeiRaised` is taking the wei purchased and adding this to the existing balance.
+
+
 
 ### ROSCATOKENCROWDSALEDEVELOPER.SOL
 
@@ -125,30 +126,40 @@ We set the crowdsale contract as the minter, and have it renounce its minter rol
 
 ## WITHDRAWALS
 
-Since this contract is deployed on a private blockchain, the owner, or company in this case, can choose to pay out their employees however they wish. We did not code the trade in functions as this is not a public contract. 
+`Since this contract is deployed on a private blockchain, the owner, or company in this case, can choose to pay out their employees however they wish. We did not code the trade in functions as this is not a public contract. 
 
-At maturity, or before, the contributers can submit a withdrawal request privately. The contract would send their address their tokens (1,000 for a $100 deposit for 10 days). The employer would convert those tokens into cash - $1 per token, and deposit this into the employee's bank accounts. 
+At maturity, or before, the contributers can submit a withdrawal request privately. The contract would send their address their tokens (1,000 for a $100 deposit for 10 days). The employer would convert those tokens into cash - $1 per token, and deposit this into the employee's bank accounts. `
+
+
+## USER INTERFACE
+
+
+
+## CONCLUSION
+
+
+Our project has several use cases and could benefit emoloyers and their employees. Version 1 of this project explores the basic ins and outs of the process : ensuring tokens are available for purchase, updating their unit balances, and withdrawing the tokens for ether. 
  
-## GOING FORWARD 
+### GOING FORWARD 
 
-This project has many use cases and can be integrated as a part of the benefits that employers offer their employees. If we were not constrained by time, we would have explored several other features. 
+ If we were not constrained by time, we would have explored several other features. 
 
-1) Allowing the user to withdraw using the streamlit interface. 
 
-As of now, the user is only allowed to submit their deposit and receive their certificate in exchange. It would be more interactive if the user was also able to request a redemption of their tokens which could trigger the contract to send them their funds.
-
-2) Deposit on a rolling basis
+1) Deposit on a rolling basis
 
 Instead of having a crowdsale period that is then locked for the duration, we could consider having an employee deposit whenever they want to, removing the time constraints.
 
-3) Whitelist features 
+2) Whitelist features 
 
 For example only full time employees are eligible for contributions.
 
-4) Have variable interest
+3) Have variable interest
 
 Right now, interest is fixed at 15%, we could add a feature that allows for higher rates that can be distributed by the company if they have a good ROI using the crowdsale funding.
 
 
 
-## CONCLUSION
+
+
+
+
