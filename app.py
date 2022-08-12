@@ -8,14 +8,18 @@ from dotenv import load_dotenv
 import streamlit as st
 import requests
 import datetime as dt
-from datetime import date, timedelta
+from datetime import date, timedelta,datetime
 
 load_dotenv()
+
 
 # Create a W3 Connection
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 private_key = os.getenv("PRIVATE_KEY")
+private_key_test = os.getenv("TEST_PRIVATE_KEY")
 contract_address = os.getenv("SMART_CONTRACT_ADDRESS_NFT")
+contract_address_cs = os.getenv("SMART_CONTRACT_ADDRESS_CS")
+contract_address_token = os.getenv("SMART_CONTRACT_ADDRESS_TOKEN")
 
 def generate_account(w3,private_key):
     account = Account.privateKeyToAccount(private_key)
@@ -78,15 +82,16 @@ def pin_cert(cert_name, cert_file,**kwargs):
 
 # Pull in Ethereum Account - Used for signing account
 
-account = generate_account(w3, private_key)
-st.write("Load Account Address: ", account.address)
-st.write("Smart Contract Address: ", contract_address)
+st.header("EMPLOYEE BENEFIT AT PRIVATE BLOCKCHAIN")
 
-st.header("JOIN NOW!")
-deposit_amounts = [100,200,300,400,500,600,700,800,900,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
-duration_options = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-deposits = st.selectbox("How much would you like to deposit?",deposit_amounts)
-duration= st.selectbox("How long would you like to deposit this for?" , duration_options)
+account = generate_account(w3, private_key)
+account2 = generate_account(w3, private_key_test)
+st.write("Owner's Address: ", account.address)
+st.write("Smart Contract Address_NFT: ", contract_address)
+st.write("Smart Contract Address_CROWDSALE: ", contract_address_cs)
+st.write("Smart Contract Address_TOKEN: ", contract_address_token)
+
+
 
 ######################################################################
 ## Load the NFT contract
@@ -106,7 +111,7 @@ def load_contract():
 
 contract = load_contract()
 
-student_account = st.text_input("Enter Employee's Account Address: ", value="0x0d9Ea39777C2741f2D57dB89aA6e9749728573Bb")
+student_account = st.text_input("Enter Employee's Account Address: ", value="0x02c99C24a118f29ec214E33c722Af42D24f7fAe6")
 
 ######################################################################
 ## Load the crowdsale contract
@@ -127,9 +132,44 @@ def load_contract_cs():
 contract_cs = load_contract_cs()
 
 ######################################################################
+## Load the token contract
+######################################################################
+
+@st.cache(allow_output_mutation=True)
+def load_contract_token():
+    with open(Path("./contracts/complied/token_abi.json")) as file:
+        token_abi = json.load(file)
+
+    contract_address_token = os.getenv("SMART_CONTRACT_ADDRESS_TOKEN")
+
+    token_contract = w3.eth.contract(address=contract_address_token,
+                    abi=token_abi)
+
+    return token_contract            
+
+contract_token = load_contract_token()
+
+######################################################################
+## Streamlit Headline
+######################################################################
+
+st.header("JOIN NOW!")
+
+        
+close_time = contract_cs.functions.closingTime().call()
+#now_time = 
+        
+st.write("Close Time: ",  datetime.fromtimestamp(close_time))
+        
+deposit_amounts = [10,100,200,300,400,500,600,700,800,900,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
+duration_options = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+deposits = st.selectbox("How much would you like to deposit?",deposit_amounts)
+duration= st.selectbox("How long would you like to deposit this for?" , duration_options)
+
+######################################################################
 ## Streamlit Inputs
 ######################################################################
-st.markdown("## Create the Certificate")
+st.markdown("## Create the Certificate and Get Token")
 
 now_today = date.today()
 td = timedelta(duration)
@@ -160,28 +200,15 @@ if st.button("Award Certificate and purchase Token"):
 
     cert_uri = f"ipfs.io/ipfs/{cert_ipfs_hash}"
     
-    nonce = w3.eth.get_transaction_count(account.address)
+    nonce = w3.eth.get_transaction_count(account2.address)
 
     # THIS ONLY WORKS IN GANACHE
-    tx = contract.functions.mint(student_account,cert_uri).buildTransaction({
-        'chainId':4,
-        'gas': 20000000,
-        'nonce': nonce
-    })
-    
-    st.write("Raw TX ", tx)
-    
-    signed_tx = account.sign_transaction(tx)
-    
-    st.write("Signed TX Hash: ", signed_tx.rawTransaction)
-    
-    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
-    
+    tx_hash = contract.functions.mint(student_account,cert_uri).transact({'from':student_account,'gas':1000000})
     # This generally works on the mainnet - Rinkeby, not so much
-    #receipt = w3.eth.waitForTransactionReceipt(tx_hash)      
+    receipt = w3.eth.waitForTransactionReceipt(tx_hash)      
 
     st.write("Transaction mined")
-    #st.write(dict(receipt))
+    st.write(dict(receipt))
 
     st.write("You can view the pinned metadata file with the following IPFS Gateway Link")
     st.markdown(f"[Cert IPFS Gateway Link] (https://{cert_uri})")
@@ -189,16 +216,37 @@ if st.button("Award Certificate and purchase Token"):
     
     
     # add purchase
-    tx_cs = contract_cs.functions.buyTokens(student_account).buildTransaction({
-        'chainId':4,
-        'gas': 20000000,
+        #nonce = w3.eth.get_transaction_count(account2.address)
+    tx_cs = contract_cs.functions.buyTokens(student_account).transact({
+        'from': student_account,
         'value': w3.toWei(deposits,"ether"),
-        'nonce': nonce
     })
     
-    st.write("Raw TX ", tx_cs)
+    receipt = w3.eth.waitForTransactionReceipt(tx_cs) 
+    st.write("Transaction Done!")
+    st.write(dict(receipt))
     
-    signed_tx_cs = account.sign_transaction(tx_cs)
     
-    st.write("Signed TX Hash: ", signed_tx_cs.rawTransaction)
-    
+######################################################################
+## Streamlit Inputs
+######################################################################
+st.markdown("## Withdraw and Claim!")
+
+employee_account = st.text_input("Enter Employee's account Address: ", value="0x02c99C24a118f29ec214E33c722Af42D24f7fAe6")
+
+if st.button("check holding"):
+        check_balance = contract_cs.functions.balanceOf(employee_account).call()
+        st.write("Holding ",w3.fromWei(check_balance,'ether'),"USD")
+
+w_amount = st.text_input("Holdings: ", 100)
+
+if st.button("withdraw"):
+        withdraw_done = contract_cs.functions.withdrawTokens(employee_account).transact({
+        'from': employee_account,
+        #'value': w3.toWei(w_amount,"ether"),
+        'nonce': w3.eth.get_transaction_count(account2.address)
+        })
+        receipt = w3.eth.waitForTransactionReceipt(withdraw_done) 
+        st.write("Success & Transaction Complete!")
+        st.write(dict(receipt))
+        
