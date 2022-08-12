@@ -15,8 +15,42 @@
 	},
 	{
 		"constant": false,
+		"inputs": [
+			{
+				"name": "refundee",
+				"type": "address"
+			}
+		],
+		"name": "claimRefund",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
 		"inputs": [],
-		"name": "deposit",
+		"name": "CrowdsaleFinalized",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "finalize",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_to",
+				"type": "address"
+			}
+		],
+		"name": "sendViaTransfer",
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
@@ -86,17 +120,100 @@
 				"type": "address"
 			},
 			{
+				"name": "cap",
+				"type": "uint256"
+			},
+			{
 				"name": "openingTime",
 				"type": "uint256"
 			},
 			{
 				"name": "closingTime",
 				"type": "uint256"
+			},
+			{
+				"name": "goal",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "beneficiary",
+				"type": "address"
+			}
+		],
+		"name": "withdrawTokens",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "balance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "cap",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "capReached",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"constant": true,
@@ -116,15 +233,57 @@
 		"constant": true,
 		"inputs": [
 			{
-				"name": "wallet",
+				"name": "",
 				"type": "address"
 			}
 		],
-		"name": "getBalance",
+		"name": "contributions",
 		"outputs": [
 			{
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "finalized",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "goal",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "goalReached",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"payable": false,
