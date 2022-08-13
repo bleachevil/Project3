@@ -27,7 +27,7 @@ Whenever they wish to redeem, users can go to the same site and receive a certif
 
 ## PRESENTATION
 
-The presentation deck can be found `here`
+The presentation deck can be found [here](https://github.com/bleachevil/Project3/blob/31ac62e3a7783a4973953fb93bf706a0d201b0ff/ROSCA.pdf)
 
 ## SOFTWARE & TECHNOLOGIES USED
 
