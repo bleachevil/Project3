@@ -6,11 +6,10 @@
 
 The goal of our project is to create opportunities for employers to provide their employees with savings options.
 
-Our product allows individuals to deposit a certain amount in a pool, with a desired duration, and withdraw the pooled amount e.g $1,000 ($100 for 10 days) immediately as an interest free loan, or to withdraw their total at maturity and earn interest on their deposit. We targetted our product at companies to ensure reliability and reduce the risk of default.
+Our product allows individuals to deposit a certain amount in a pool, with a desired duration, and withdraw the pooled amount e.g $100 ($10 for 10 days) immediately as an interest free loan, or to withdraw their total at maturity and earn interest on their deposit. We targetted our product at companies to ensure reliability and reduce the risk of default.
 
 We used remix to create a smart contract and deployed this product on a private blockhain. Users can go to the site , enter the amount they wish to deposit, and immediately receive their certificate.
-
-`whenever they wish to redeem, users can go to the withdrawal site and receive a certificate with their tokens, and exchange that for ether`
+Whenever they wish to redeem, users can go to the same site and receive a certificate with their tokens, and exchange that for ether. The interface is user friendly and interactive.
 
 ## GENERAL QUESTIONS TO ANSWER
 
@@ -28,7 +27,7 @@ We used remix to create a smart contract and deployed this product on a private 
 
 ## PRESENTATION
 
-The presentation deck can be found here
+The presentation deck can be found `here`
 
 ## SOFTWARE & TECHNOLOGIES USED
 
@@ -42,11 +41,9 @@ The presentation deck can be found here
 
 ## HOW IT WORKS
 
-This example will follow Nancy, an employee at ABC inc. She requires a loan for a down payment of her car and needs $1,000 immediately. By entering into this contract, she can choose to deposit $100 over the next 10 days and receive her $1,000 immediately. The company automatically withdraws the $100 from Nancy's salary daily until maturity.
+This example will follow Nancy, an employee at ABC inc. She requires a loan for a down payment of her car and needs $100 immediately. By entering into this contract, she can choose to deposit $10 over the next 10 days and receive her $100 immediately. The company automatically withdraws the $10 from Nancy's salary daily until maturity.
 
-Alteratively, Nancy has an obligation to pay a creditor $1,000 at the end of the week. She enters into a 10-day contract where she is to deposit $100 daily. Since she doesn't need the money immediately, she withdraws her money at maturity. Since she held her funds in the contract until maturity, she is awarded 15% on her deposits.
-
-On the user's end, they will see our streamlit interface where they enter their name, address, desired duration, deposit amount, as well as the start/end date. Once they submit, they will receive a certificate with their deposit amount that they can cash in when they choose. `The same process is valid for redemptions`
+Alteratively, Nancy has an obligation to pay a creditor $100 at the end of the week. She enters into a 10-day contract where she is to deposit $10 daily. Since she doesn't need the money immediately, she withdraws her money at maturity. Since she held her funds in the contract until maturity, she is awarded 20% on her deposits.
 
 ## BENEFITS
 
@@ -74,10 +71,6 @@ We decided to add a "pausible" component to the contract. This will allow us to 
 
 Add a timer to the crowdsale. We'll add an opening time and a closing time. We will only allow investors to purchase tokens within this time window.
 
-* How can we set minimum and maximum deposits? 
-
-Add a limit component and hard caps. 
-
 ## BUILDING THE CONTRACT
 
 ### ROSCATOKEN.SOL
@@ -104,11 +97,9 @@ For the detailed constructor, we set the multilplier to 18 to represent 1 wei pe
 
 We mapped the address to the contribution amounts, as well as the balances. 
 
-The crowdsale function takes in the rate, wallet, and token. The timed crowdsale requires an opening time and closing time, which we set as `10 minutes` past the opening time. We can also set the goal of the crowdsale to which ever number, and if the goal is not reached, the contributors will have their deposits refunded. 
+The crowdsale function takes in the rate, wallet, and token. The timed crowdsale requires an opening time and closing time, which we set as `10 minutes` past the opening time. We can also set the goal of the crowdsale to which ever number, and if the goal is not reached, the contributors will have their deposits refunded. If the goal is reached, they are locked into the contract. 
 
-The sendViaTransfers function takes in an address. If a contributor wishes to redeem, their address is entered into the function. When we call the function , the tokens get sent back to the contract.
-
-
+The sendViaTransfers function takes in an address. If a contributor wishes to redeem, their address is entered into the function. When we call the function , the tokens get sent back to the contract. Which then get sent to the contributer. 
 
 
 ### ROSCATOKENCROWDSALEDEVELOPER.SOL
@@ -127,12 +118,24 @@ We set the crowdsale contract as the minter, and have it renounce its minter rol
 
 ## USER INTERFACE
 
+On the user's end, they will see our streamlit interface where they enter their name, wallet address, desired duration, deposit amount, as well as the start/end date. Once they submit, they will receive a certificate with their deposit amount that they can cash in when they choose.
+
+<img width="940" alt="Screen Shot 2022-08-13 at 8 25 45 AM" src="https://user-images.githubusercontent.com/99091066/184493963-8f3ce547-1c1a-437b-8a8e-282539285090.png">
+
+<img width="821" alt="Screen Shot 2022-08-13 at 8 26 01 AM" src="https://user-images.githubusercontent.com/99091066/184493970-f6ccfdb7-f66e-4b48-b85f-0f229d8f68af.png">
+
+
+The same process is valid for redemptions. Here, the user can enter their wallet address and check their balance. Then, they enter in their balance amount and withdraw their funds. 
+
+<img width="1001" alt="Screen Shot 2022-08-13 at 8 27 30 AM" src="https://user-images.githubusercontent.com/99091066/184494025-97116dc0-1338-4352-aa31-2e25e8cbd55f.png">
 
 
 ## CONCLUSION
 
 
-Our project has several use cases and could benefit emoloyers and their employees. Version 1 of this project explores the basic ins and outs of the process : ensuring tokens are available for purchase, updating their unit balances, and withdrawing the tokens for ether. 
+Our project has several use cases and could benefit emoloyers and their employees. Version 1 of this project explores the basic ins and outs of the process : ensuring tokens are available for purchase, updating their unit balances, and withdrawing the tokens for ether, all while providing the employee a user friendly interface.
+
+We believe this solves a problem that many individuals face. Both parties, the employee and the employer, would benefit from this arrangement and thus, we are certain companies would be eager to implement our product.
  
 ### GOING FORWARD 
 
@@ -149,7 +152,7 @@ For example only full time employees are eligible for contributions.
 
 3) Have variable interest
 
-Right now, interest is fixed at 15%, we could add a feature that allows for higher rates that can be distributed by the company if they have a good ROI using the crowdsale funding.
+Right now, interest is fixed at 20%, we could add a feature that allows for higher rates that can be distributed by the company if they have a good ROI using the crowdsale funding.
 
 
 
